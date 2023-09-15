@@ -18,16 +18,16 @@ table ends
 
 codesg segment
 start:	mov ax,data
-		mov ds,ax				;数据段地址放入ds
-		mov bx,0				;年份偏移
-		mov si,54h				;收入偏移
-		mov di,0a8h				;雇员数量偏移
+		mov ds,ax			;数据段地址放入ds
+		mov bx,0			;年份偏移
+		mov si,54h			;收入偏移
+		mov di,0a8h			;雇员数量偏移
 		
 		mov ax,table
 		mov es,ax
-		mov bp,0				;表格段地址放入es
+		mov bp,0			;表格段地址放入es
 		
-		mov cx,21				;循环21次
+		mov cx,21			;循环21次
 		
 	s:	mov al,ds:[bx]
 		mov es:[bp],al
