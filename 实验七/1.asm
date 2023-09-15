@@ -55,7 +55,7 @@ start:	mov ax,data
 		add bx,4h			;年份4字节，偏移增4h
 		add si,4h			;总收入4字节，偏移增4h
 		add di,2h			;雇员数量字节，偏移增2h
-		add bp,10h			;表格一轮16字节，偏移增16h
+		add bp,10h			;表格一轮16字节，偏移增10h
 		loop s
 		
 		mov ax,4c00h
