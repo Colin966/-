@@ -37,25 +37,25 @@ start:	mov ax,data
 		mov es:2h[bp],al
 		mov al,ds:3h[bx]
 		mov es:3h[bp],al		;年份字符串是 db 字节定义的，分成四个字节存储	
-		                        ;将年份送入table中
+		                        	;将年份送入table中
 		
 		mov ax,ds:[si]
 		mov dx,ds:2h[si]
 		mov es:5h[bp],ax
 		mov es:7h[bp],dx		;总收入是由 dd 定义的双字(4 Byte)存储，取出时考虑 高位的字(2 Byte)和低位的字(2 Byte)
-								;为了方便接下来计算平均收入，选择将高位放在dx中，低位放在ax中
-								;将总收入分高位，低位送入table
+						;为了方便接下来计算平均收入，选择将高位放在dx中，低位放在ax中
+						;将总收入分高位，低位送入table
 		
-		div word ptr ds:[di]	;段地址ds偏移di是雇员数量地址，雇员数量是dw定义的字型(2 Byte)存储,满足div除法中32位除16位的情况
+		div word ptr ds:[di]		;段地址ds偏移di是雇员数量地址，雇员数量是dw定义的字型(2 Byte)存储,满足div除法中32位除16位的情况
 		mov es:0dh[bp],ax		;商被放在ax中，送入table
 		
 		mov ax,ds:[di]
 		mov es:0ah[bp],ax		;雇员数量送入table
 		
-		add bx,4h				;年份4字节，偏移增4h
-		add si,4h				;总收入4字节，偏移增4h
-		add di,2h				;雇员数量字节，偏移增2h
-		add bp,10h				;表格一轮16字节，偏移增16h
+		add bx,4h			;年份4字节，偏移增4h
+		add si,4h			;总收入4字节，偏移增4h
+		add di,2h			;雇员数量字节，偏移增2h
+		add bp,10h			;表格一轮16字节，偏移增16h
 		loop s
 		
 		mov ax,4c00h
