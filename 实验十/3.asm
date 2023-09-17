@@ -10,7 +10,8 @@ stack segment
 stack ends
 
 code segment
-start:	mov ax,stack
+start:	
+		mov ax,stack
 		mov ss,ax
 		mov sp,32		;栈(16 word空间)
 				
