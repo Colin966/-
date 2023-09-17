@@ -5,7 +5,8 @@ stack segment
 stack ends
 
 code segment
-start:	mov ax,stack
+start:	
+		mov ax,stack
 		mov ss,ax
 		mov sp,16		;栈(8 word空间)
 		
@@ -17,7 +18,8 @@ start:	mov ax,stack
 		mov ax,4c00h
 		int 21h
 	
-divdw:	push ax			;ax入栈，保护被除数低16位
+divdw:	
+		push ax			;ax入栈，保护被除数低16位
 
 		mov ax,dx	
 		mov dx,0		
