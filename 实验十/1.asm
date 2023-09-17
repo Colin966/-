@@ -1,3 +1,4 @@
+;1.显示字符串
 assume cs:code
 data segment
 	db 'welcome to masm!',0
